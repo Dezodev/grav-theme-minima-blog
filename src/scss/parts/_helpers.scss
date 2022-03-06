@@ -1,0 +1,172 @@
+$prefixCl: 'u-';
+
+/* Utilities
+** ============================== */
+
+/* Spacing */
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: (
+        $spacer * 0.25,
+    ),
+    2: (
+        $spacer * 0.5,
+    ),
+    3: $spacer,
+    4: (
+        $spacer * 2,
+    ),
+    5: (
+        $spacer * 3,
+    ),
+    6: (
+        $spacer * 4.5,
+    ),
+    7: (
+        $spacer * 6.5,
+    ),
+);
+
+$xy-border: (
+    top: t,
+    bottom: b,
+    left: l,
+    right: r,
+);
+
+@each $prop, $letter in (margin: m, padding: p) {
+    @each $direction, $d in $xy-border {
+        @each $unit, $rem in $spacers {
+            .#{$prefixCl + $letter + $d + '-' + $unit} {
+                #{$prop}-#{$direction}: #{$rem} !important;
+            }
+        }
+        .#{$prefixCl + $letter + $d + '-auto'} {
+            #{$prop}-#{$direction}: auto !important;
+        }
+    }
+    @each $unit, $rem in $spacers {
+        .#{$prefixCl + $letter + 'a-' + $unit} {
+            #{$prop}: $rem !important;
+        }
+
+        .#{$prefixCl + $letter + 'x-' + $unit} {
+            #{$prop}-left: $rem !important;
+            #{$prop}-right: $rem !important;
+        }
+        .#{$prefixCl + $letter + 'y-' + $unit} {
+            #{$prop}-top: $rem !important;
+            #{$prop}-bottom: $rem !important;
+        }
+    }
+}
+
+/* Float */
+
+$float-values: (left, right, none);
+
+@each $v in $float-values {
+    .#{$prefixCl + 'float-' + $v} {
+        float: $v !important;
+    }
+}
+
+/* Display */
+
+$display-values: (
+    none,
+    inline,
+    inline-block,
+    block,
+    table,
+    table-row,
+    table-cell,
+    flex,
+    inline-flex
+);
+
+@each $v in $display-values {
+    .#{$prefixCl + 'd-' + $v} {
+        display: $v !important;
+    }
+}
+
+/* Position */
+
+$position-values: (static, relative, absolute, fixed, sticky);
+
+@each $v in $position-values {
+    .#{$prefixCl + 'p-' + $v} {
+        position: $v !important;
+    }
+}
+
+/* Text */
+
+// $fw-values: (
+//     light: $font_w_light,
+//     lighter: $font_w_light,
+//     regular: $font_w_regular,
+//     bold: $font_w_bold,
+//     bolder: $font_w_bolder,
+// );
+
+// @each $k, $v in $fw-values {
+//     .#{$prefixCl + 'text-' + $k} {
+//         font-weight: $v !important;
+//     }
+// }
+
+// $txtcol-values: (
+//     primary: $color_primary,
+//     secondary: $color_secondary,
+//     success: $color_success,
+//     danger: $color_danger,
+//     warning: $color_warning,
+//     info: $color_info,
+//     light: $color_light,
+//     dark: $color_dark,
+// );
+
+// @each $k, $v in $txtcol-values {
+//     .#{$prefixCl + 'text-' + $k} {
+//         color: $v !important;
+//     }
+//     .#{$prefixCl + 'background-' + $k} {
+//         background-color: $v !important;
+//     }
+// }
+
+$txttr-values: (lowercase, uppercase, capitalize);
+
+@each $v in $txttr-values {
+    .#{$prefixCl + 'text-' + $v} {
+        text-transform: $v !important;
+    }
+}
+
+$txtal-values: (left, right, center, justify);
+
+@each $v in $txtal-values {
+    .#{$prefixCl + 'text-' + $v} {
+        text-align: $v !important;
+    }
+}
+
+$txtdeco-values: (none, underline, line-through);
+
+@each $v in $txtdeco-values {
+    .#{$prefixCl + 'text-deco-' + $v} {
+        text-decoration: $v !important;
+    }
+}
+
+/* List */
+
+.#{$prefixCl + 'list-unstyled'} {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    list-style: none !important;
+}

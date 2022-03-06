@@ -1,0 +1,131 @@
+@import 'parts/_colorsBank.scss';
+@import 'parts/_variables.scss';
+@import 'parts/_helpers.scss';
+
+@import '~bootstrap/scss/bootstrap';
+
+@import 'parts/_bootswatch.scss';
+@import 'parts/_icons.scss';
+
+/* General
+** ================================= */
+
+body {
+    // padding-top: 57px;
+}
+
+img {
+    max-width: 100%;
+}
+
+// Headings
+
+h1,
+.h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Header
+** ================================= */
+
+header#header {
+    #header-top {
+        background-color: $primary;
+        color: $white;
+        padding: 1rem 0;
+
+        .header-site-name {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        a {
+            color: $white;
+            text-decoration: none;
+
+            &:hover {
+                color: darken($white, 15%);
+            }
+        }
+    }
+    #header-bottom {
+        background-color: $primary;
+        color: $white;
+        padding: 0.6rem 0;
+
+        .nav-link {
+            padding: 0 0.5rem;
+            color: $white;
+            text-decoration: none;
+
+            &:hover {
+                color: darken($white, 15%);
+            }
+        }
+
+        @media all and (min-width: 992px) {
+            .nav-item {
+                color: $success;
+                .dropdown-menu {
+                    display: none;
+                    margin-top: 0;
+                }
+                &:hover {
+                    .dropdown-menu {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Content
+** ================================= */
+
+#wrapper-page {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    & > .container {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+
+/* Sidebar
+** ================================= */
+
+#sidebar {
+}
+
+/* Footer
+** ================================= */
+
+footer#footer {
+    background-color: $dark;
+    color: $white;
+
+    .footer-mentions {
+        padding: 0.6rem 0;
+        text-align: center;
+
+        & > ul {
+            margin-bottom: 0;
+        }
+    }
+}
